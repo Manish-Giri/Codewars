@@ -16,7 +16,7 @@ function toCamelCase(str){
     // - replace next letter with uppercase
 
     // TODO: Do it with regex
-    
+
     for(let i = 0; i < letters.length; i++) {
         if(letters[i] === '_' || letters[i] === '-') {
             letters[i+1] = letters[i+1].toUpperCase();
