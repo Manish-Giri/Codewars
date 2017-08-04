@@ -3,8 +3,9 @@ Given a set of numbers, return the additive inverse of each. Each positive becom
 */
 
 function invert(array) {
-  if(!array.length) {
-   return [];
-   }
+  // map is null safe
+//   if(!array.length) {
+//    return [];
+//    }
    return array.map(e => 0 - e);
 }
