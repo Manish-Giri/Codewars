@@ -15,3 +15,8 @@ function contamination(text, char){
   return !text.length || !char.length ? '' : text.split('').map(letter => char).join('');
 }
 
+// recursive solution
+function contamination(text, char){
+  // Code here ;)   
+   return !text.length ? '' : char + contamination(text.slice(1), char);
+}
