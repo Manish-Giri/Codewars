@@ -18,3 +18,9 @@ function isLucky(ticket) {
   ticketNums.forEach((digit, index) => index <= 2 ? firstSum += parseInt(digit): secondSum += parseInt(digit));
   return firstSum === secondSum;
 }
+
+
+function isLucky(ticket) {
+  let ticketNums = ticket.split('');
+  return (ticketNums.length !== 6 || ticketNums.some(t => typeof parseInt(t) !== "number")) ? false : ticketNums.slice(0,3).map(t => +t).reduce((a,b) => a + b) === ticketNums.slice(3).map(t => +t).reduce((a,b) => a + b);
+}
