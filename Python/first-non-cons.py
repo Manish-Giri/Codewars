@@ -8,5 +8,3 @@ def first_non_consecutive(arr):
         if i not in numbers:
             return i+1
     return None
-    
-    
