@@ -24,3 +24,10 @@ const sequenceSum = (begin, end, step) => {
   }
   return sum;
 };
+
+
+
+const sequenceSum = (begin, end, step) => {
+  // May the Force be with you
+  return begin > end ? 0 : begin + sequenceSum(begin + step, end, step);
+};
