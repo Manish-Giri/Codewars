@@ -7,6 +7,7 @@ divisibleBy([1,2,3,4,5,6], 2) == [2,4,6]
 divisibleBy([1,2,3,4,5,6], 2) == [2,4,6]
 */
 
+/*
 import java.util.*;
 public class EvenNumbers {
   public static int[] divisibleBy(int[] numbers, int divider) {
@@ -24,5 +25,13 @@ public class EvenNumbers {
         int[] intArray = Arrays.stream(res).mapToInt(Integer::intValue).toArray();
         
         return intArray;
+  }
+}
+*/
+
+import java.util.*;
+public class EvenNumbers {
+  public static int[] divisibleBy(int[] numbers, int divider) {
+   return Arrays.stream(numbers).filter(n -> (n % divider) == 0).toArray();
   }
 }
