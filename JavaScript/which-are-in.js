@@ -15,6 +15,7 @@ returns []
 
 */
 
+/*
 function inArray(array1,array2){
   //...
   return array1.filter(word => {
@@ -26,6 +27,12 @@ function inArray(array1,array2){
     });
     return found;
   }).sort();
+}
+*/
+
+function inArray(array1,array2){
+  //...
+  return array1.filter(e => array2.some(word => word.indexOf(e) > -1)).sort();
 }
 
 var a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
