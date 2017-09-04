@@ -19,6 +19,7 @@ Beware: r must be without duplicates.
 */
 
 // Java 7
+/*
 import java.util.*;
 public class WhichAreIn { 
 	
@@ -36,4 +37,14 @@ public class WhichAreIn {
      Collections.sort(filter);
      return filter.stream().map(c->c).toArray(String[]::new);
 	}
+}
+*/
+
+// Solve Which Are In with Java 8
+import java.util.*;
+
+public class WhichAreIn { 	
+ public static String[] inArray(String[] array1, String[] array2) {
+      return Arrays.stream(array1).filter(word -> (Arrays.stream(array2).anyMatch(e -> e.indexOf(word) > -1 ))).sorted().toArray(String[]::new);
+  }
 }
