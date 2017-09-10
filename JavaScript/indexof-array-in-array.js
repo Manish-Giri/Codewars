@@ -39,4 +39,10 @@ var query = new object[] { 1,2 }; // => valid input
 query = new object[] { 9,2,1 }; // => throw Exception
 */
 
-
+var searchArray = function (arrayToSearch, query) {
+  var _ = require('lodash');
+  if(! (_.isArray(query) && _.size(query) === 2 && _.every(arrayToSearch, arr =>  _.isArray(arr) && _.size(arr) === 2))) {
+   throw new Error();
+  }
+  return _.findIndex(arrayToSearch, arr => _.isEqual(arr, query));
+}
