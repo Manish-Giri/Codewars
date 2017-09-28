@@ -12,3 +12,5 @@ def solve(a,b):
     return res
     
     
+def solve(a,b):
+    return [a.count(word) for word in b]
