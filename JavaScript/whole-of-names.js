@@ -1,11 +1,4 @@
 /*
-
-
-    " It should be good to stay in the Hall of Fame . . . "
-
-So unfair ! Other players with same score as you, may put you out of the Hall due to name-sorting-rule ! ! ! (better to be named anjinxin than zozo...)
-
-Things should change now !
 Task
 
 Create a function hallOfFame(players) which return an ordered list of sub-arrays of players with same score.
@@ -52,6 +45,66 @@ hallOfFame(["Aya",9], ["Ben",8], ["Clo",7], ["Dan",6.99])
 Don't give up, stay in the Top !
 
 */
+
+// Refactored
+
+function hallOfFame( players ){
+  let dupPlayers =  players.slice();
+  dupPlayers.sort((a,b) => a[1] > b[1] ? -1 : a[1] < b[1] ? 1 : a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+  let results = {}
+  dupPlayers.forEach((e, i) => {
+    if(!results.hasOwnProperty(e[1])) {
+      let idxs = findIndexesOfSameRank(dupPlayers, e[1])
+      results[e[1]] = idxs;
+    }
+  });
+  let ranksFromObj = Object.keys(results).sort((b,a) => a - b);
+  let resultArr = [];
+  for(let i = 0; i < 3; i++) {
+    let key = ranksFromObj[i];
+    let idxs = results[key];
+    let tempArr = [+key];
+    idxs.forEach(i => tempArr.push(dupPlayers[i][0]));
+    if(i === 0) {
+      resultArr.push(tempArr);
+    }
+    else if (i === 1) {
+       let l = resultArr[0].slice(1).length;
+       if(l === 2) {
+         resultArr.push([], tempArr);
+         break;
+       }
+       else if(l >= 3) {
+          resultArr.push([], []);
+          break;
+        } 
+       else {
+         resultArr.push(tempArr);
+       }
+    }
+    else if(i === 2) {      
+      if(resultArr[0].slice(1).length + resultArr[1].slice(1).length >= 3) {
+        resultArr.push([]);
+        break;
+      }
+      else {
+        resultArr.push(tempArr);
+      } 
+    }
+  }
+  return resultArr;
+}
+function findIndexesOfSameRank(arr, score) {
+  let indexes = [];
+  arr.forEach((e,i) => {
+     if(e[1] === score) {
+      indexes.push(i);
+    }
+  });
+  return indexes;
+}
+
+// Original
 
 function hallOfFame( players ){
   let dupPlayers =  players.slice();
