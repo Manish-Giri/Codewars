@@ -17,4 +17,9 @@ def agents(list_found, list_records):
     if list_found == i:
       return "Match found"
   return "No matches"  
+
+
+  
+def agents(list_found, list_records):
+    return None if len(list_found) == 0 else "Match found" if list_found in list_records else "No matches"
   
