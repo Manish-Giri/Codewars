@@ -20,3 +20,6 @@ function modifyMultiply (str,loc,num) {
   new Array(num).fill(0).forEach(_ => res += `${word}-`);
   return res.replace(/-$/g, '');
 }
+
+// good solution -
+return Array(n).fill(str.split(' ')[i]).join('-');
