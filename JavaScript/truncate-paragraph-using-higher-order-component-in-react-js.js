@@ -25,14 +25,20 @@ HOC should have correctly formatted displayName WithTruncateParagraph(ComponentN
 Enjoy :)
 */
 
-// TODO - fix
 const React = require('react');
 
 const withTruncateParagraph = (Component) => {
-  return function(props) {
-    const textLen = props.textLength || 10;
+   function wrappedComponent(props) {
+    const textLen = props.textLength === undefined ? 10 : props.textLength;
     const len = textLen > -1 ? textLen: 0;
     const sliced = props.textLength === -1 ? props.children: `${props.children.slice(0, len)}...`;
-    return <Component children={sliced}/>;
+    return <Component {...props}>{sliced}</Component>;
   }
+  wrappedComponent.displayName = `WithTruncateParagraph(${getDisplayName(Component)})`;
+  return wrappedComponent;
 };
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
