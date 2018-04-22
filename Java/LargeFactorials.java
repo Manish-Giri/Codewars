@@ -8,3 +8,18 @@ You are guaranteed an integer argument. For any values outside the non-negative 
 For more on factorials, see http://en.wikipedia.org/wiki/Factorial
 */
 
+import java.math.BigInteger;
+public class Kata
+{
+  private static BigInteger fact(BigInteger n) {
+    if (n.intValue() <= 1) {
+      return BigInteger.valueOf(1);
+    }
+    else {
+      return n.multiply(fact(n.subtract(BigInteger.valueOf(1))));
+    }
+  }
+  public static String Factorial(int n) {
+    return fact(BigInteger.valueOf(n)).toString();
+  }
+}
