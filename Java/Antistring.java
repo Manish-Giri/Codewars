@@ -41,3 +41,11 @@ public class AntiString{
     }
     
 }
+
+// clever solution
+    public static String antiString(String str){
+        StringBuilder sb = new StringBuilder();
+        for (char c: str.toCharArray()) 
+            sb.append( (char) (c<'A' ? ('9'+'0'-c) : ('z'+'A'-c)) );
+        return sb.reverse().toString();
+    }
