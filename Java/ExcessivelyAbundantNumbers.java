@@ -19,3 +19,6 @@ public class ExcessivelyAbundantNumbers {
         return num < divisors.stream().mapToInt(i->i).sum();
     }  
 }
+
+// clever -
+// return num < IntStream.rangeClosed(1, num/2).filter(i -> num % i == 0).sum();
