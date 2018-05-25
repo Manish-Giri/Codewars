@@ -7,3 +7,5 @@ def highest_rank(arr):
       d[k] += 1
     return max(list(d.keys())) if(len(set(d.values())) == 1) else max(d, key=d.get)
   
+# clever
+#     return sorted(arr,key=lambda x: (arr.count(x),x))[-1]
