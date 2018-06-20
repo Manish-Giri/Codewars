@@ -17,3 +17,6 @@ public class DisemvowelTrolls {
         return str.chars().filter(c -> vowels.indexOf(c) == -1).mapToObj(c->""+(char)c).collect(Collectors.joining(""));
     }
 }
+
+// clever
+return str.replaceAll("(?i)[aeiou]" , "");
