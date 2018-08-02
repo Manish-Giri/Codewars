@@ -23,3 +23,7 @@ If the [Group] does exist (eg: rainbow) and does have [Word] as a key (eg: run),
 (Massive thanks to dukies_2000 for improving the description)
 */
 
+function mnemonicLookup(group, word) {
+  const obj = global[group];
+  return obj ? word in obj ? obj[word] : "You're onto something, but still quite far off." : "There is no mnemonic for this.";
+}
